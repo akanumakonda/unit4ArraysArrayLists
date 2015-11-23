@@ -31,7 +31,7 @@ public class ArrayPractice
         boolean found = false;
         while ( pos < values.length && !found )
         {
-            if ( values[pos] == searchedValue )
+            if ( values[pos] == searchValue )
             {
                 found = true;
             }
