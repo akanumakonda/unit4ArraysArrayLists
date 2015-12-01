@@ -30,18 +30,20 @@ public class PartialArray
     }
     public void insert( int pos, int newValue)
     {
-     if (this.currentSize < this.values.length)
+     if ( this.currentSize == this.values.length)
      {
-         this.currentSize++;
-         for( int i = this.currentSize-1 ;
-            i > pos;
-            i--)
-         {
-             this.values[i] = this.values[i-1];
-            }
-     }
+         this.grow();
+        }
+     this.currentSize++;
+     for( int i = this.currentSize-1 ;
+          i > pos;
+          i--)
+      {
+         this.values[i] = this.values[i-1];
+       }
+     
      this.values[pos] = newValue;
-    }
+     }
     public void swap( int pos1, int pos2)
     {
         if ( pos1 < this.currentSize && pos2< this.currentSize)
@@ -51,8 +53,22 @@ public class PartialArray
             this.values[pos2] = temp;
         }
     }
+    
     public void grow ()
     {
-        System.out.println("");
+        int[] newValues = new int[ this.currentSize * 2];
+        for ( int i = 0;
+            i < this.currentSize;
+            i ++)
+        {
+            newValues[i] = this.values[i];
+        }
+        this.values = newValues;
+    }
+    
+    public static void main(String[] args)
+    {
+        PartialArray myPartialArray = new  PartialArray();
+        myPartialArray.insert(2,12);
     }
 }
