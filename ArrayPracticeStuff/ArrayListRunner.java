@@ -19,7 +19,7 @@ public class ArrayListRunner
        int index = names.indexOf("Alice");
        names.set(index, "Alice B. Toklas");
        //add Doug after david using different add
-       names.add(names.indexOf(("Doug")+1), "David");
+       names.add(names.indexOf("David")+1, "Doug");
        // Print each name in the arraylist
        for ( int i = 0;
              i < names.size();
